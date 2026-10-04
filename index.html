@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NeneWorld</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <main>
+    <section id="mainScreen" class="screen active">
+      <div class="art-shell">
+        <img id="mainArt" src="assets/neneworld-reference.jpg" alt="NeneWorld world screen">
+        <!-- Exact-image clickable zones -->
+        <button class="hotspot hs-family" data-view="family" aria-label="Family House"></button>
+        <button class="hotspot hs-school" data-view="school" aria-label="School"></button>
+        <button class="hotspot hs-cafe" data-view="cafe" aria-label="Pet Cafe"></button>
+        <button class="hotspot hs-grocery" data-view="grocery" aria-label="Grocery Store"></button>
+        <button class="hotspot hs-playground" data-view="playground" aria-label="Playground"></button>
+        <button class="hotspot hs-city" data-view="city" aria-label="City"></button>
+
+        <button class="hotspot hs-kitchen" data-view="kitchen" aria-label="Kitchen and Living Room"></button>
+        <button class="hotspot hs-bedroom" data-view="bedroom" aria-label="Bedroom"></button>
+        <button class="hotspot hs-bathroom" data-view="bathroom" aria-label="Bathroom"></button>
+
+        <button class="hotspot hs-dress" data-view="dress" aria-label="Dress Up"></button>
+        <button class="hotspot hs-interact" data-view="interact" aria-label="Interact and Play"></button>
+        <button class="hotspot hs-cabinets" data-view="cabinets" aria-label="Cabinets and Objects"></button>
+        <button class="hotspot hs-sleep" data-view="sleep" aria-label="Sleep Time"></button>
+      </div>
+    </section>
+
+    <section id="detailScreen" class="screen">
+      <div class="detail-top">
+        <button id="backBtn">← Back</button>
+        <div>
+          <h1 id="detailTitle">NeneWorld</h1>
+          <p id="detailSubtitle"></p>
+        </div>
+      </div>
+
+      <div class="detail-art-shell">
+        <img id="detailImage" alt="">
+        <div id="detailInteractive"></div>
+      </div>
+
+      <div class="action-bar" id="actionBar"></div>
+    </section>
+
+    <section id="creatorScreen" class="screen">
+      <div class="creator-top">
+        <button id="creatorBack">← Back</button>
+        <div>
+          <h1>Character Creator</h1>
+          <p>Create a new character or customize Nene, Yuna, and Natalie.</p>
+        </div>
+      </div>
+
+      <div class="creator-wrap">
+        <div class="avatar-stage">
+          <div class="avatar-card">
+            <div class="avatar-hair" id="ccHair"></div>
+            <div class="avatar-head tone2" id="ccHead">
+              <div class="cc-eyes">• •</div>
+              <div class="cc-mouth">⌣</div>
+            </div>
+            <div class="avatar-topwear pink" id="ccTop"></div>
+            <div class="avatar-bottomwear skirt" id="ccBottom"></div>
+            <div class="avatar-shoes" id="ccShoes">👟 👟</div>
+            <div class="avatar-accessory" id="ccAccessory">🎀</div>
+          </div>
+          <input id="ccName" maxlength="18" value="Nene" aria-label="Character name">
+          <select id="ccCharacter">
+            <option>Nene</option>
+            <option>Yuna</option>
+            <option>Natalie</option>
+            <option>New Character</option>
+          </select>
+        </div>
+
+        <div class="creator-controls">
+          <div class="cc-tabs">
+            <button class="active" data-cat="hair">Hair</button>
+            <button data-cat="skin">Skin</button>
+            <button data-cat="top">Tops</button>
+            <button data-cat="bottom">Bottoms</button>
+            <button data-cat="shoes">Shoes</button>
+            <button data-cat="accessory">Accessories</button>
+          </div>
+          <div class="cc-grid" id="ccGrid"></div>
+          <div class="cc-actions">
+            <button id="randomizeBtn">🎲 Randomize</button>
+            <button id="saveLookBtn">💾 Save Look</button>
+            <button id="wearInHouseBtn">🏡 Wear in House</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="cityScreen" class="screen">
+      <div class="creator-top">
+        <button id="cityBack">← Back</button>
+        <div>
+          <h1>Explore NeneWorld</h1>
+          <p>Choose a car, drive around town, and visit your favorite places.</p>
+        </div>
+      </div>
+      <div class="city-wrap">
+        <div class="city-map" id="cityMap">
+          <div class="sky-decor">☁️ ☀️ ☁️</div>
+          <div class="river">🌊 🌊 🌊 ⛵ 🌊</div>
+          <div class="road road-a"></div><div class="road road-b"></div><div class="road road-c"></div>
+          <button class="destination house-dest" data-dest="house"><span>🏡</span><b>Family House</b></button>
+          <button class="destination school-dest" data-dest="school"><span>🏫</span><b>School</b></button>
+          <button class="destination cafe-dest" data-dest="cafe"><span>🐾☕</span><b>Pet Café</b></button>
+          <button class="destination grocery-dest" data-dest="grocery"><span>🛒</span><b>Grocery</b></button>
+          <button class="destination park-dest" data-dest="playground"><span>🛝</span><b>Playground</b></button>
+          <button class="destination clothes-dest" data-dest="clothes"><span>👗</span><b>Clothing Store</b></button>
+          <div class="city-car" id="cityCar">🚗</div>
+        </div>
+        <div class="garage-panel">
+          <h2>Choose Your Car</h2>
+          <div class="garage-grid">
+            <button data-car="🚗" data-carname="Pink Car">🚗<small>Pink Car</small></button>
+            <button data-car="🚙" data-carname="SUV">🚙<small>SUV</small></button>
+            <button data-car="🚕" data-carname="City Car">🚕<small>City Car</small></button>
+            <button data-car="🚐" data-carname="Family Van">🚐<small>Family Van</small></button>
+          </div>
+          <div class="drive-actions">
+            <button id="driveHome">🏡 Drive Home</button>
+            <button id="driveSchool">🏫 Drive to School</button>
+            <button id="driveCafe">🐾 Drive to Pet Café</button>
+          </div>
+          <p id="driveStatus">Pick a destination on the map.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="toast"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
